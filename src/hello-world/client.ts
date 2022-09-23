@@ -12,6 +12,8 @@ async function runClient() {
     const [result] = await sock.receive();
     console.log('Received ', result.toString(), i);
   }
+
+  await sock.send('QUIT');
 }
 
 runClient();

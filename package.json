@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "hello-world": "concurrently \"ts-node src/hello-world/server.ts\" \"ts-node src/hello-world/client.ts\"",
+    "hello-world": "ts-node src/hello-world",
     "queue": "ts-node src/queue",
     "threaded-worker": "ts-node src/threaded-worker"
   },
@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/danew/zmq#readme",
   "dependencies": {
-    "concurrently": "^7.4.0",
     "zeromq": "^6.0.0-beta.6"
   },
   "devDependencies": {

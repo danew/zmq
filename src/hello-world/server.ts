@@ -6,8 +6,17 @@ async function runServer() {
   await sock.bind('tcp://*:5555');
 
   for await (const [msg] of sock) {
-    console.log('Received ' + ': [' + msg.toString() + ']');
-    await sock.send('World');
+    switch (msg.toString()) {
+      case 'QUIT': {
+        console.log('Exiting server');
+        sock.close()
+        return;
+      }
+      default: {
+        console.log('Received ' + ': [' + msg.toString() + ']');
+        await sock.send('World');
+      }
+    }
   }
 }
 
